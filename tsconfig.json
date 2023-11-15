@@ -24,20 +24,10 @@
     "paths": {
       "@common/*": ["src/common/*"],
       "@common": ["src/common"],
-      "@features/*": ["src/features/*"],
-      "@features": ["src/features"],
-      "@layouts/*": ["src/layouts/*"],
-      "@layouts": ["src/layouts"],
-      "@redux/*": ["src/redux/*"],
-      "@redux": ["src/redux"],
-      "@theme/*": ["src/theme/*"],
-      "@theme": ["src/theme"],
-      "@routes/*": ["src/routes/*"],
-      "@routes": ["src/routes"],
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "src/vite-env.d.ts"],
-  "exclude": ["node_modules"],
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

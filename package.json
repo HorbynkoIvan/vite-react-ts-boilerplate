@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "vite",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,18 +7,17 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint --quiet --fix \"src/**/*.{js,jsx,ts,tsx}\"",
     "prettier": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config .prettierrc",
     "prettier:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config .prettierrc",
     "prepare": "husky install",
     "preview": "vite preview"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "yarn lint",
+    "*.{js,jsx,ts,tsx}": "yarn lint:fix",
     "*.{js,jsx,ts,tsx,css,md,json}": "yarn prettier:fix"
   },
   "devDependencies": {
-    "@types/node": "^20.8.9",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -39,6 +38,11 @@
     "lint-staged": "^15.0.2",
     "prettier": "^3.0.3",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-checker": "^0.6.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
