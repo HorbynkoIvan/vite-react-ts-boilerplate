@@ -2,7 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_API_URL: string;
-  readonly VITE_PORT: string | number;
+  readonly VITE_PORT: string;
 }
 
 interface ImportMeta {

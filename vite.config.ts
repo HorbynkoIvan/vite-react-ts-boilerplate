@@ -5,15 +5,17 @@ import * as path from "path";
 
 export default ({ mode }) => {
   // Load app-level env vars to node-level env vars.
-  const env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+  const projectEnv = { ...process.env, ...loadEnv(mode, process.cwd()) };
   // import.meta.env.VITE_PORT available here with: process.env.VITE_PORT
 
   // Resolve server port
   const defaultPort = 3000;
-  const port = mode === "production" ? 9000 : parseInt(env.VITE_PORT, 10) || defaultPort;
+  const port = mode === "production" ? 9000 : parseInt(projectEnv.VITE_PORT, 10) || defaultPort;
 
   if (isNaN(port)) {
-    console.warn(`Invalid VITE_PORT value: ${env.VITE_PORT}, using default port ${defaultPort}`);
+    console.warn(
+      `Invalid VITE_PORT value: ${projectEnv.VITE_PORT}, using default port ${defaultPort}`
+    );
   }
 
   return defineConfig({
