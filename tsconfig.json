@@ -24,6 +24,12 @@
     "paths": {
       "@common/*": ["src/common/*"],
       "@common": ["src/common"],
+      "@features/*": ["src/features/*"],
+      "@features": ["src/features"],
+      "@layouts/*": ["src/layouts/*"],
+      "@layouts": ["src/layouts"],
+      "@redux/*": ["src/redux/*"],
+      "@redux": ["src/redux"],
       "@/*": ["./src/*"]
     }
   },
