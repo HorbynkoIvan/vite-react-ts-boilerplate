@@ -1,4 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged
+# Run lint-staged
+if npx lint-staged; then
+  echo "Linting passed."
+else
+  echo "Linting failed. Please fix the errors and try again."
+  exit 1
+fi

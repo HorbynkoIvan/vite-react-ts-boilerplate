@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running TypeScript check..."
+npx tsc --noEmit
+
+if [ $? -ne 0 ]; then
+  echo "TypeScript error. Check failed."
+  exit 1
+fi
+
+echo "TypeScript check passed successfully."
