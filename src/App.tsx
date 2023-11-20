@@ -1,10 +1,7 @@
-function App() {
-  const test = (one: number) => {
-    console.log(one);
-    return one;
-  };
+import { BrowserRouter } from "react-router-dom";
 
-  return <div>App {test(1)}</div>;
+function App() {
+  return <BrowserRouter basename={import.meta.env.VITE_BASE_PATH}>sdvsdvsd</BrowserRouter>;
 }
 
 export default App;
