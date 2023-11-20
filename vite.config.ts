@@ -10,15 +10,17 @@ export default ({ mode }) => {
 
   // Resolve server port
   const defaultPort = 3000;
-  const port = mode === "production" ? 9000 : parseInt(projectEnv.VITE_PORT, 10) || defaultPort;
+  const port =
+    mode === "production"
+      ? parseInt(projectEnv.VITE_PROD_PORT, 10)
+      : parseInt(projectEnv.VITE_DEV_PORT, 10) || defaultPort;
 
   if (isNaN(port)) {
-    console.warn(
-      `Invalid VITE_PORT value: ${projectEnv.VITE_PORT}, using default port ${defaultPort}`
-    );
+    throw new Error(`Invalid port value: ${port}`);
   }
 
   return defineConfig({
+    base: projectEnv.VITE_BASE_PATH,
     server: {
       host: true,
       port: port,
@@ -29,6 +31,11 @@ export default ({ mode }) => {
       checker({
         typescript: true,
       }),
+      // ToDO consider:
+      //  vite-plugin-compression2,
+      //  vite-plugin-environment,
+      //  vite-plugin-svgr,
+      //  vite-plugin-simple-gql
     ],
     resolve: {
       alias: {
